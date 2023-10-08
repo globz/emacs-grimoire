@@ -46,17 +46,17 @@ make_emacs()
       spellpouch -p "dialog_prompt" -e "!WARNING! You are building the version ${version} defined in this script, press any key to continue or C-c to abort..."
 
       echo -e "\033[31m Installing build dependencies...\e[m"
-      # sudo apt build-dep -y emacs
-      # sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
-      #      gnutls-bin libtree-sitter-dev gcc-11 imagemagick libmagick++-dev \
-      #      libwebp-dev webp libxft-dev libxft2
+      sudo apt build-dep -y emacs
+      sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
+           gnutls-bin libtree-sitter-dev gcc-11 imagemagick libmagick++-dev \
+           libwebp-dev webp libxft-dev libxft2
 
       echo -e "\033[31m Configuring Emacs build...\e[m"
-      # cd "${emacs_src_dir}/emacs-${version}/"
-      # export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11
-      # ./autogen.sh
-      # ./configure --with-native-compilation=aot --with-json --with-tree-sitter
-      # make -j$(nproc)
+      cd "${emacs_src_dir}/emacs-${version}/"
+      export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11
+      ./autogen.sh
+      ./configure --with-native-compilation=aot --with-json --with-tree-sitter
+      make -j$(nproc)
 
       echo -e "\033[31m Build complete, you may test this build within this directory ${emacs_src_dir}/emacs-${version}/ with ./src/emacs -Q\e[m"  
   fi

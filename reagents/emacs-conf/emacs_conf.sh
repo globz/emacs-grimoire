@@ -39,7 +39,7 @@ emacs_conf()
   if [ "$ACTION" == 3 ]
   then
     spellpouch -p "dialog_prompt" -e "You are about to update emacs-conf (git pull), press any key to continue or C-c to abort..."
-    cd "${emacs_deps_dir}" && git pull "${repo}"
+    cd "${emacs_deps_dir}/emacs-conf" && git pull "${repo}"
   fi  
 
 }
