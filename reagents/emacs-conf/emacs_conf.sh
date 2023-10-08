@@ -34,6 +34,8 @@ emacs_conf()
   then
     spellpouch -p "dialog_prompt" -e "You are about to configure Emacs with emacs-conf, press any key to continue or C-c to abort..."
     echo -e "Configuring Emacs..."
+
+    #Copy francais.hash and francais.aff to /usr/lib/ispell, you may now use the french dictionary.
   fi
 
   if [ "$ACTION" == 3 ]
