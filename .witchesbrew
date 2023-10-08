@@ -1,0 +1,32 @@
+[GRIMOIRE]
+:name:
+emacs-grimoire
+:version:
+v0.1
+:description:
+Grimoire for managing emacs configuration & dependecies
+[/]
+
+[REAGENT]
+:name:
+emacs-conf
+:version:
+v0.1
+:description:
+Fetch, configure and update Emacs configuration
+:source:
+emacs_conf.sh
+:executed:
+[/]
+
+[RECIPE]
+:name:
+example-recipe
+:version:
+v0.1
+:description:
+Recipe description
+:source:
+example_recipe.sh
+:installed:
+[/]
