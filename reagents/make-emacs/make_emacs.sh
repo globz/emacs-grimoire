@@ -36,6 +36,7 @@ make_emacs()
     mkdir -p "${emacs_src_dir}" && cd "${emacs_src_dir}" && wget "${emacs_src_url}"
     sudo apt install xz-utils
     tar -xf "emacs-${version}.tar.xz"
+    mv "emacs-${version}.tar.xz" "emacs-${version}"
   fi
   
   if [ "$ACTION" == 2 ]
@@ -54,11 +55,11 @@ make_emacs()
       read -p 'Choice (i.e emacs-29.1): ' UNINSTALL_THIS_VERSION
 
       echo -e "\033[31m Creating backup of ~/.emacs.d\e[m"
-      mkdir -p "${emacs_backup_dir}/emacsd-${current_date_time}" && cp ~/.emacs.d/ "${emacs_backup_dir}/emacsd-${current_date_time}/."
-      
+      mkdir -p "${emacs_backup_dir}/emacs.d-${current_date_time}" && cp -r ~/.emacs.d/ "${emacs_backup_dir}/emacs.d-${current_date_time}/."
+      cd -
       spellpouch -p "dialog_prompt" -e "Backup completed, do you wish to proceed and uninstall ${UNINSTALL_THIS_VERSION}?, press any key to continue or C-c to abort..."
 
-      cd "${emacs_src_dir}/${UNINSTALL_THIS_VERSION}" && make uninstall
+      #cd "${emacs_src_dir}/${UNINSTALL_THIS_VERSION}" && make uninstall
   fi
 
   if [ "$ACTION" == 4 ]
