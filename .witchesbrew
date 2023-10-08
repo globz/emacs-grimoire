@@ -29,6 +29,17 @@ Download elixir-ls (language-server)
 elixir_ls.sh
 [/]
 
+[REAGENT]
+:name:
+make-emacs
+:version:
+v0.1
+:description:
+Download, build, install and uninstall Emacs source
+:source:
+make_emacs.sh
+[/]
+
 [RECIPE]
 :name:
 example-recipe
