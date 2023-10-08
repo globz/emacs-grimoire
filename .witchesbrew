@@ -19,6 +19,18 @@ emacs_conf.sh
 :executed:
 [/]
 
+[REAGENT]
+:name:
+elixir-ls
+:version:
+v0.1
+:description:
+Download & update elixir-ls (language-server)
+:source:
+elixir_ls.sh
+:executed:
+[/]
+
 [RECIPE]
 :name:
 example-recipe

@@ -30,6 +30,16 @@ emacs_conf()
     mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && git clone "${repo}"
   fi
 
+  if [ "$ACTION" == 2 ]
+  then
+    spellpouch -p "dialog_prompt" -e "You are about to configure Emacs with emacs-conf, press any key to continue or C-c to abort..."
+    echo -e "Configuring Emacs..."
+  fi
 
+  if [ "$ACTION" == 3 ]
+  then
+    spellpouch -p "dialog_prompt" -e "You are about to update emacs-conf (git pull), press any key to continue or C-c to abort..."
+    cd "${emacs_deps_dir}" && git pull "${repo}"
+  fi  
 
 }
