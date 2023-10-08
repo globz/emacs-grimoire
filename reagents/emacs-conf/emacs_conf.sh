@@ -27,7 +27,7 @@ emacs_conf()
   if [ "$ACTION" == 1 ]
   then
     spellpouch -p "dialog_prompt" -e "You are about to fetch emacs-conf, press any key to continue or C-c to abort..."
-    cd "${emacs_deps_dir}" && git clone "${repo}"
+    mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && git clone "${repo}"
   fi
 
 
