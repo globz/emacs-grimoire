@@ -24,7 +24,7 @@ elixir-ls
 :version:
 v0.1
 :description:
-Download & update elixir-ls (language-server)
+Download elixir-ls (language-server)
 :source:
 elixir_ls.sh
 [/]
