@@ -15,7 +15,7 @@ validate_env() {
     then
         echo -e "\033[33mInvalid ENV :\e[0m expected values are one of the following : ${valid_env[@]}"
         exit 1
-    elif [ "$env" == "LINUX" ] && [ "$os_name" != "LINUX" ]
+    elif [ "$env" == "LINUX" ] && [ "$os_name" != "Linux" ]
     then
         echo -e "\033[33mInvalid OS for ENV : $env\e[0m - expected OS [LINUX]"
         exit 1
