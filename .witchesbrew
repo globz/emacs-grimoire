@@ -16,7 +16,6 @@ v0.1
 Fetch, configure and update Emacs configuration
 :source:
 emacs_conf.sh
-:executed:
 [/]
 
 [REAGENT]
@@ -28,7 +27,6 @@ v0.1
 Download & update elixir-ls (language-server)
 :source:
 elixir_ls.sh
-:executed:
 [/]
 
 [RECIPE]
@@ -40,5 +38,4 @@ v0.1
 Recipe description
 :source:
 example_recipe.sh
-:installed:
 [/]
