@@ -84,7 +84,7 @@ make_emacs()
       cd -
       spellpouch -p "dialog_prompt" -e "Backup completed, do you wish to proceed and uninstall ${UNINSTALL_THIS_VERSION}?, press any key to continue or C-c to abort..."
 
-      cd "${emacs_src_dir}/${UNINSTALL_THIS_VERSION}" && make uninstall
+      cd "${emacs_src_dir}/${UNINSTALL_THIS_VERSION}" && sudo make uninstall
   fi
 
   if [ "$ACTION" == 5 ]
