@@ -27,7 +27,7 @@ make_emacs()
         read -p 'Choice: ' ACTION
     fi
 
-    if [ "$ACTION" == 1 ]
+    if [[ "$ACTION" == 1 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to download Emacs source, press any key to continue or C-c to abort..."
         spellpouch -p "dialog_prompt" -e "Please make sure to update this script version variable before proceeding, press any key to continue or C-c to abort..."
@@ -38,7 +38,7 @@ make_emacs()
         mv "emacs-${version}.tar.xz" "emacs-${version}"
     fi
 
-    if [ "$ACTION" == 2 ]
+    if [[ "$ACTION" == 2 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to build Emacs from source, press any key to continue or C-c to abort..."
         spellpouch -p "dialog_prompt" -e "!WARNING! You are building the version ${version} defined in this script, press any key to continue or C-c to abort..."
@@ -59,7 +59,7 @@ make_emacs()
         echo -e "\033[31m Build complete, you may test this build within this directory ${emacs_src_dir}/emacs-${version}/ with ./src/emacs -Q\e[m"
     fi
 
-    if [ "$ACTION" == 3 ]
+    if [[ "$ACTION" == 3 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to install Emacs from source, press any key to continue or C-c to abort..."
         spellpouch -p "dialog_prompt" -e "Please make sure to uninstall your current Emacs version before proceeding, press any key to continue or C-c to abort..."
@@ -75,7 +75,7 @@ make_emacs()
         fi
     fi
 
-    if [ "$ACTION" == 4 ]
+    if [[ "$ACTION" == 4 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to uninstall Emacs from source, press any key to continue or C-c to abort..."
         spellpouch -p "dialog_prompt" -e "Please select a version from the list below, press any key to continue or C-c to abort..."
@@ -95,7 +95,7 @@ make_emacs()
         fi
     fi
 
-    if [ "$ACTION" == 5 ]
+    if [[ "$ACTION" == 5 ]]
     then
         cd "${emacs_src_dir}" && ls -d emacs-*
         echo -e "\033[31m You may build Emacs from source with witchesbrew mix make-emacs -e LINUX 2.\e[m"
