@@ -9,28 +9,6 @@ Grimoire for managing Emacs configuration & dependencies
 
 [REAGENT]
 :name:
-emacs-conf
-:version:
-v0.1
-:description:
-Fetch, configure and update Emacs configuration
-:source:
-emacs_conf.sh
-[/]
-
-[REAGENT]
-:name:
-elixir-ls
-:version:
-v0.1
-:description:
-Download elixir-ls (language-server)
-:source:
-elixir_ls.sh
-[/]
-
-[REAGENT]
-:name:
 make-emacs
 :version:
 v0.1
@@ -38,6 +16,28 @@ v0.1
 Download, build, install and uninstall Emacs source
 :source:
 make_emacs.sh
+[/]
+
+[REAGENT]
+:name:
+emacs-conf
+:version:
+v0.1
+:description:
+Download, configure and update Emacs configuration
+:source:
+emacs_conf.sh
+[/]
+
+[REAGENT]
+:name:
+emacs-language-server
+:version:
+v0.1
+:description:
+Install and update Language Server
+:source:
+emacs_language_server.sh
 [/]
 
 [RECIPE]
