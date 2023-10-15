@@ -27,6 +27,7 @@ emacs_conf()
 
     if [[ "$ACTION" == 1 ]]
     then
+        echo -e '\e]8;;https://github.com/globz/emacs-conf\a[github] emacs-conf\e]8;;\a'
         spellpouch -p "dialog_prompt" -e "You are about to git clone emacs-conf, press any key to continue or C-c to abort..."
         mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && git clone "${repo}"
     fi
