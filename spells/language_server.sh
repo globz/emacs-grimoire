@@ -6,7 +6,7 @@ install_elixir_ls()
     local wd=$(pwd)
     local version=$1
 
-    echo -e "\033[31m Default version is current set to ${version}.\e[m"
+    echo -e "\033[31m Default version is currently set to ${version}.\e[m"
     echo -e "\033[31m Would you like to input another version?\e[m"
     read -p 'Use another version (y/n): ' CHOICE_USER_VERSION
 
@@ -39,7 +39,6 @@ install_elixir_ls()
 
 install_bash_ls()
 {
-
     echo -e "\033[31m Downloading and installing bash-language-server...\e[m"
     echo -e '\e]8;;https://github.com/bash-lsp/bash-language-server\a[github] bash-language-server\e]8;;\a'
     npm i -g bash-language-server
@@ -47,7 +46,6 @@ install_bash_ls()
 
 install_javascript_ls()
 {
-
     echo -e "\033[31m Downloading and installing typescript-language-server...\e[m"
     echo -e '\e]8;;https://github.com/typescript-language-server/typescript-language-server\a[github] typescript-language-server\e]8;;\a'
     npm i -g typescript-language-server typescript
@@ -55,7 +53,6 @@ install_javascript_ls()
 
 install_php_ls()
 {
-
     echo -e "\033[31m Downloading and installing intelephense-language-server...\e[m"
     echo -e '\e]8;;https://github.com/bmewburn/vscode-intelephense\a[github] intelephense-language-server\e]8;;\a'
     npm i -g intelephense
@@ -63,21 +60,16 @@ install_php_ls()
 
 update_elixir_ls()
 {
-
     local wd=$(pwd)
-
     cd "${wd}/emacs-deps/language-server/" && ls -d elixir-ls-*
     echo -e "\033[31m You may update your eglot emacs-conf with one of the following version above.\e[m"
     echo -e "\033[31m ${wd}/emacs-deps/language-server/elixir-ls-[version]/language_server.sh\e[m"
-
 }
 
 update_bash_ls()
 {
-
     echo -e "\033[31m Updating bash-language-server...\e[m"
     npm update -g bash-language-server
-
 }
 
 update_javascript_ls()
@@ -90,8 +82,6 @@ update_javascript_ls()
 
 update_php_ls()
 {
-
     echo -e "\033[31m Updating typescript-language-server...\e[m"
     npm update -g intelephense
-
 }
