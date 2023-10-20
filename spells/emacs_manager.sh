@@ -84,6 +84,7 @@ build_29_1()
     if [[ "${version}" == "29.1" ]]
     then
         echo -e "\033[31m Installing build dependencies...\e[m"
+        sudo sed -i '/deb-src/s/^# //' /etc/apt/sources.list && sudo apt update
         sudo apt build-dep -y emacs
         sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
              gnutls-bin libtree-sitter-dev gcc-11 imagemagick libmagick++-dev \
