@@ -4,7 +4,7 @@ ls_ts_reqs()
     local version="v18.18.0"
     local check_type=$(type -t nvm)
 
-    if [[ ${check_type} == "function" ]]
+    if [[ ${check_type} != "function" ]]
     then
         echo -e "\033[31m nvm (Node Version Manager) could not be found\e[m"
         echo -e "\033[31m Node is required for language servers using TypeScript\e[m"
