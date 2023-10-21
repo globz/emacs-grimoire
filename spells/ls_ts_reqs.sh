@@ -14,7 +14,8 @@ ls_ts_reqs()
 
         curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh" | bash
 
-        source ~/.bashrc
+        . ~/.bashrc
+        . ~/.nvm/nvm.sh
         nvm install "${node_version}" && nvm list
     fi
 
