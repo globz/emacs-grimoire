@@ -40,6 +40,17 @@ Install and update Language Server
 emacs_language_server.sh
 [/]
 
+[REAGENT]
+:name:
+prog-lang
+:version:
+v0.1
+:description:
+Install programming language runtime
+:source:
+prog_lang.sh
+[/]
+
 [RECIPE]
 :name:
 example-recipe
