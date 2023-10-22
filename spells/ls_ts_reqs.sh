@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ls_ts_reqs()
 {
 
