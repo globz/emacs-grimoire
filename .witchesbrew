@@ -51,6 +51,17 @@ Install programming language runtime
 prog_lang.sh
 [/]
 
+[REAGENT]
+:name:
+emacs-aspell
+:version:
+v0.1
+:description:
+Install aspell dictionaries
+:source:
+emacs_aspell.sh
+[/]
+
 [RECIPE]
 :name:
 example-recipe
