@@ -137,3 +137,17 @@ mit_scheme_uninstall() {
 
     cd "${emacs_deps_dir}/mit-scheme-${UNINSTALL_THIS_VERSION}/src" && sudo make uninstall
 }
+
+racket_scheme() {
+    local racket_version=$1
+
+    # Racket Scheme
+    echo -e "\n Adding racket-scheme asdf plugin...\n"
+    asdf plugin add racket https://github.com/nandalopes/asdf-racket.git
+    asdf list-all racket
+
+    asdf install racket "${racket_version}"
+
+    asdf global racket "${racket_version}"
+
+}

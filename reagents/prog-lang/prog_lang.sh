@@ -16,6 +16,7 @@ prog_lang()
     echo -e "\e[0;35m3 - Install Scheme\e[m"
     echo -e "\e[0;35m4 - Install Lisp [SBCL]\e[m"
     echo -e "\e[0;35m5 - Install Python\e[m"
+    echo -e "\e[0;35m6 - Install R\e[m"
 
     if [[ ! -z "$predefined_selection" ]]
     then
@@ -41,6 +42,7 @@ prog_lang()
         echo -e "\033[31m Which Scheme interpreter would you like to install?\e[m"
         echo -e "\e[0;35m1 - Install [chez] with asdf\e[m"
         echo -e "\e[0;35m2 - Install [mit] from source\e[m"
+        echo -e "\e[0;35m3 - Install [racket] with asdf\e[m"
         read -p 'Choice: ' SCHEME_INSTALL_CHOICE
 
         if [[ "$SCHEME_INSTALL_CHOICE" == 1 ]]
@@ -85,6 +87,13 @@ prog_lang()
             fi
 
         fi
+
+        if [[ "$SCHEME_INSTALL_CHOICE" == 3 ]]
+        then
+            echo -e "\033[31m Installing Racket Scheme...\e[m"
+            spellpouch -p "asdf" -s "install"
+            spellpouch -p "runtime" -s "racket_scheme" -e "8.10"
+        fi        
     fi
 
     if [ "$ACTION" == 4 ]
