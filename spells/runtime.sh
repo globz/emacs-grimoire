@@ -165,3 +165,17 @@ python() {
     asdf global python "${python_version}"
 
 }
+
+odin() {
+    local odin_version=$1
+
+    # Odin
+    echo -e "\n Adding Odin asdf plugin...\n"
+    asdf plugin add odin
+    asdf list-all odin
+
+    asdf install odin "${odin_version}"
+
+    asdf global odin "${odin_version}"
+
+}

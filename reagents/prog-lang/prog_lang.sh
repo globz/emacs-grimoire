@@ -17,6 +17,7 @@ prog_lang()
     echo -e "\e[0;35m4 - Install Lisp [SBCL]\e[m"
     echo -e "\e[0;35m5 - Install Python\e[m"
     echo -e "\e[0;35m6 - Install R\e[m"
+    echo -e "\e[0;35m7 - Install Odin\e[m"    
 
     if [[ ! -z "$predefined_selection" ]]
     then
@@ -107,5 +108,12 @@ prog_lang()
         spellpouch -p "asdf" -s "install"
         spellpouch -p "runtime" -s "python" -e "3.10.12"
     fi
+
+    if [ "$ACTION" == 7 ]
+    then
+        echo -e "\033[31m Installing Odin...\e[m"
+        spellpouch -p "asdf" -s "install"
+        spellpouch -p "runtime" -s "odin" -e "dev-2024-02"
+    fi    
 
 }
