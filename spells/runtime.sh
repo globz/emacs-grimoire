@@ -151,3 +151,17 @@ racket_scheme() {
     asdf global racket "${racket_version}"
 
 }
+
+python() {
+    local python_version=$1
+
+    # Python
+    echo -e "\n Adding python asdf plugin...\n"
+    asdf plugin add python
+    asdf list-all python
+
+    asdf install python "${python_version}"
+
+    asdf global python "${python_version}"
+
+}

@@ -104,6 +104,8 @@ prog_lang()
     if [ "$ACTION" == 5 ]
     then
         echo -e "\033[31m Installing Python...\e[m"
+        spellpouch -p "asdf" -s "install"
+        spellpouch -p "runtime" -s "python" -e "3.10.12"
     fi
 
 }

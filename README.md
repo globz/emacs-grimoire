@@ -12,3 +12,4 @@ You will need [witchesbrew](https://github.com/globz/witchesbrew) in order to us
 - [ ] Python + LS
 - [ ] R
 - [ ] HTML language server ~ https://github.com/hrsh7th/vscode-langservers-extracted
+- [ ] Odin + LS + tree-sitter-odin
