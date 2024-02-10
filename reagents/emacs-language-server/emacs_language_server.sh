@@ -28,6 +28,7 @@ emacs_language_server()
         echo -e "\e[0;35m2 - Install [bash]\e[m"
         echo -e "\e[0;35m3 - Install [typescript/JavaScript]\e[m"
         echo -e "\e[0;35m4 - Install [PHP]\e[m"
+        echo -e "\e[0;35m5 - Install [Odin]\e[m"        
         read -p 'Choice: ' LS_INSTALL_CHOICE
 
         if [[ "$LS_INSTALL_CHOICE" == 1 ]]
@@ -57,6 +58,12 @@ emacs_language_server()
             spellpouch -p "language_server" -s "install_php_ls"
         fi
 
+        if [[ "$LS_INSTALL_CHOICE" == 5 ]]
+        then
+            echo -e "\e[0;35m4 - Installing [Odin] language-server\e[m"
+            spellpouch -p "language_server" -s "install_odin_ls"
+        fi        
+
     fi
 
     if [ "$ACTION" == 2 ]
@@ -66,6 +73,7 @@ emacs_language_server()
         echo -e "\e[0;35m2 - Update [bash]\e[m"
         echo -e "\e[0;35m3 - Update [typescript/JavaScript]\e[m"
         echo -e "\e[0;35m4 - Update [PHP]\e[m"
+        echo -e "\e[0;35m5 - Update [Odin]\e[m"
         read -p 'Choice: ' LS_UPDATE_CHOICE
 
         if [[ "$LS_UPDATE_CHOICE" == 1 ]]
@@ -91,6 +99,12 @@ emacs_language_server()
             echo -e "\e[0;35m4 - Updating [PHP] language-server\e[m"
             spellpouch -p "language_server" -s "update_php_ls"
         fi
+
+        if [[ "$LS_UPDATE_CHOICE" == 5 ]]
+        then
+            echo -e "\e[0;35m4 - Updating [Odin] language-server\e[m"
+            spellpouch -p "language_server" -s "update_odin_ls"
+        fi        
     fi
 
 }

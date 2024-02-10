@@ -177,5 +177,5 @@ odin() {
     asdf install odin "${odin_version}"
 
     asdf global odin "${odin_version}"
-
+    
 }

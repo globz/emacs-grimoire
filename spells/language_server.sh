@@ -58,6 +58,26 @@ install_php_ls()
     npm i -g intelephense
 }
 
+install_odin_ls()
+{
+    echo -e "\033[31m Downloading and installing ols...\e[m"
+    echo -e '\e]8;;https://github.com/DanielGavin/ols\a[github] ols (Odin language server)\e]8;;\a'
+
+    local wd=$(pwd)
+    local odin_ls_install_dir="${wd}/emacs-deps/language-server/"
+
+    cd "${odin_ls_install_dir}" && git clone https://github.com/DanielGavin/ols.git
+
+
+    # Requirements
+    sudo apt update
+    sudo apt install clang
+
+    cd "${odin_ls_install_dir}/ols" && ./build.sh
+
+    echo -e "\033[31m export the following PATH to your .profile $HOME/emacs-grimoire/emacs-deps/language-server/ols\e[m"
+}
+
 update_elixir_ls()
 {
     local wd=$(pwd)
@@ -84,4 +104,12 @@ update_php_ls()
 {
     echo -e "\033[31m Updating typescript-language-server...\e[m"
     npm update -g intelephense
+}
+
+update_odin_ls()
+{
+    local wd=$(pwd)
+    cd "${wd}/emacs-deps/language-server/ols"
+    git pull && rm ols && ./build.sh
+    echo -e "\033[31m ols is now up to date\e[m"
 }
