@@ -91,14 +91,16 @@ build_29_4()
         sudo sed -i '/deb-src/s/^# //' /etc/apt/sources.list && sudo apt update
         sudo apt build-dep -y emacs
         sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
-             gnutls-bin libtree-sitter-dev gcc-11 imagemagick libmagick++-dev \
-             libwebp-dev webp libxft-dev libxft2
+             gnutls-bin libtree-sitter-dev gcc-11 libtiff5-dev libgif-dev libjpeg-dev \
+             libpng-dev libwebp-dev webp libxft-dev libxft2 libgtk-3-dev libncurses-dev \
+             texinfo
 
         echo -e "\033[31m Configuring and building Emacs ${version}...\e[m"
         cd "${emacs_src_dir}/emacs-${version}/"
         export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11
         ./autogen.sh
-        ./configure --with-native-compilation=aot --with-json --with-tree-sitter
+        ./configure --with-native-compilation=aot --with-json \
+        --with-tree-sitter --with-pgtk
         make -j$(nproc)
 
         echo -e "\033[31m Build complete, you may test this build within this directory ${emacs_src_dir}/emacs-${version}/ with ./src/emacs -Q\e[m"
