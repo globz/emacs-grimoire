@@ -57,6 +57,10 @@ build_src()
 
     case "${version}" in
 
+        "29.4")
+            parent_function=build_29_4
+            ;;
+        
         "29.1")
             parent_function=build_29_1
             ;;
@@ -72,6 +76,33 @@ build_src()
     esac
 
     $parent_function $emacs_src_dir $version
+
+}
+
+build_29_4()
+{
+
+    local emacs_src_dir=$1
+    local version=$2
+
+    if [[ "${version}" == "29.4" ]]
+    then
+        echo -e "\033[31m Installing build dependencies...\e[m"
+        sudo sed -i '/deb-src/s/^# //' /etc/apt/sources.list && sudo apt update
+        sudo apt build-dep -y emacs
+        sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
+             gnutls-bin libtree-sitter-dev gcc-11 imagemagick libmagick++-dev \
+             libwebp-dev webp libxft-dev libxft2
+
+        echo -e "\033[31m Configuring and building Emacs ${version}...\e[m"
+        cd "${emacs_src_dir}/emacs-${version}/"
+        export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11
+        ./autogen.sh
+        ./configure --with-native-compilation=aot --with-json --with-tree-sitter
+        make -j$(nproc)
+
+        echo -e "\033[31m Build complete, you may test this build within this directory ${emacs_src_dir}/emacs-${version}/ with ./src/emacs -Q\e[m"
+    fi
 
 }
 

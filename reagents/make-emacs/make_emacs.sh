@@ -28,13 +28,13 @@ make_emacs()
     if [[ "$ACTION" == 1 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to download Emacs source, press any key to continue or C-c to abort..."
-        spellpouch -p "emacs_manager" -s "download_src" -e "29.1"
+        spellpouch -p "emacs_manager" -s "download_src" -e "29.4"
     fi
 
     if [[ "$ACTION" == 2 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to build Emacs from source, press any key to continue or C-c to abort..."
-        spellpouch -p "emacs_manager" -s "build_src" -e "29.1"
+        spellpouch -p "emacs_manager" -s "build_src" -e "29.4"
     fi
 
     if [[ "$ACTION" == 3 ]]
@@ -45,7 +45,7 @@ make_emacs()
         if spellpouch -p "create_backup"
         then
             spellpouch -p "dialog_prompt" -e "Backup completed, do you wish to proceed and install Emacs?, press any key to continue or C-c to abort..."
-            spellpouch -p "emacs_manager" -s "install_src" -e "29.1"
+            spellpouch -p "emacs_manager" -s "install_src" -e "29.4"
         else
             echo "Backup failed!"
             return 1
