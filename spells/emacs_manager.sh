@@ -93,7 +93,7 @@ build_29_4()
         sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
              gnutls-bin libtree-sitter-dev gcc-11 libtiff5-dev libgif-dev libjpeg-dev \
              libpng-dev libwebp-dev webp libxft-dev libxft2 libgtk-3-dev libncurses-dev \
-             texinfo
+             texinfo libgnutls28-dev libxpm-dev
 
         echo -e "\033[31m Configuring and building Emacs ${version}...\e[m"
         cd "${emacs_src_dir}/emacs-${version}/"
