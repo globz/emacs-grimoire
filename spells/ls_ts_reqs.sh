@@ -4,7 +4,7 @@ ls_ts_reqs()
 {
 
     local nvm_version="v0.39.5"
-    local node_version="v18.18.0"
+    local node_version="v22.20"
     local check_type=$(type -t nvm)
 
     if [[ ${check_type} != "function" ]]

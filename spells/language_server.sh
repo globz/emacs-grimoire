@@ -65,7 +65,7 @@ install_odin_ls()
 
     local wd=$(pwd)
     local odin_ls_install_dir="${wd}/emacs-deps/language-server/"
-
+    mkdir -p "${odin_ls_install_dir}"
     cd "${odin_ls_install_dir}" && git clone https://github.com/DanielGavin/ols.git
 
 
