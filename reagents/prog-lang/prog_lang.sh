@@ -30,7 +30,7 @@ prog_lang()
     then
         echo -e "\033[31m Installing Erlang/Elixir...\e[m"
         spellpouch -p "asdf" -s "install"
-        spellpouch -p "runtime" -s "erlang_elixir" -e "26.1.1" "1.15.6-otp-26"
+        spellpouch -p "runtime" -s "erlang_elixir" -e "27.3.4.3" "1.18.4-otp-27"
     fi
 
     if [ "$ACTION" == 2 ]
