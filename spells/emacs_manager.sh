@@ -84,20 +84,20 @@ build_29_4()
 
     local emacs_src_dir=$1
     local version=$2
-
+    
     if [[ "${version}" == "29.4" ]]
     then
         echo -e "\033[31m Installing build dependencies...\e[m"
         sudo sed -i '/deb-src/s/^# //' /etc/apt/sources.list && sudo apt update
         sudo apt build-dep -y emacs
         sudo apt install libgccjit0 libgccjit-11-dev libjansson4 libjansson-dev \
-             gnutls-bin libtree-sitter-dev gcc-11 libtiff5-dev libgif-dev libjpeg-dev \
+             gnutls-bin gcc-11 libtiff5-dev libgif-dev libjpeg-dev \
              libpng-dev libwebp-dev webp libxft-dev libxft2 libgtk-3-dev libncurses-dev \
              texinfo libgnutls28-dev libxpm-dev
 
         echo -e "\033[31m Configuring and building Emacs ${version}...\e[m"
         cd "${emacs_src_dir}/emacs-${version}/"
-        export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11
+        export CC=/usr/bin/gcc-11 && export CXX=/usr/bin/gcc-11 && export LD_LIBRARY_PATH=/usr/local/lib/
         ./autogen.sh
         ./configure --with-native-compilation=aot --with-json \
         --with-tree-sitter --with-pgtk
@@ -181,7 +181,7 @@ install_src()
 
     local emacs_install_dir="${wd}/emacs-src/emacs-${version}/"
 
-    cd "${emacs_install_dir}" && sudo make install
+    cd "${emacs_install_dir}" && export LD_LIBRARY_PATH=/usr/local/lib/ && sudo make install
 
 }
 

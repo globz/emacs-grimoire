@@ -8,6 +8,9 @@ make_emacs()
     local wd=$(pwd)
     local emacs_src_dir="${wd}/emacs-src"
 
+    # Update this value whenever a new Emacs build is defined
+    local default_emacs_version="29.4" 
+    
     # Sourcing spellpouch from working directory (user grimoire)
     source "${wd}/spells/spellpouch.sh"
 
@@ -17,6 +20,7 @@ make_emacs()
     echo -e "\e[0;35m3 - Install Emacs from source\e[m"
     echo -e "\e[0;35m4 - Uninstall Emacs from source\e[m"
     echo -e "\e[0;35m5 - List available Emacs builds\e[m"
+    echo -e "\e[0;35m6 - Uninstall tree-sitter\e[m"    
 
     if [[ ! -z "$predefined_selection" ]]
     then
@@ -28,13 +32,14 @@ make_emacs()
     if [[ "$ACTION" == 1 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to download Emacs source, press any key to continue or C-c to abort..."
-        spellpouch -p "emacs_manager" -s "download_src" -e "29.4"
+        spellpouch -p "emacs_manager" -s "download_src" -e "${default_emacs_version}"
     fi
 
     if [[ "$ACTION" == 2 ]]
     then
         spellpouch -p "dialog_prompt" -e "You are about to build Emacs from source, press any key to continue or C-c to abort..."
-        spellpouch -p "emacs_manager" -s "build_src" -e "29.4"
+        spellpouch -p "tree_sitter" -s "check_before_build" -e "${default_emacs_version}"
+        spellpouch -p "emacs_manager" -s "build_src" -e "${default_emacs_version}"
     fi
 
     if [[ "$ACTION" == 3 ]]
@@ -45,7 +50,7 @@ make_emacs()
         if spellpouch -p "create_backup"
         then
             spellpouch -p "dialog_prompt" -e "Backup completed, do you wish to proceed and install Emacs?, press any key to continue or C-c to abort..."
-            spellpouch -p "emacs_manager" -s "install_src" -e "29.4"
+            spellpouch -p "emacs_manager" -s "install_src" -e "${default_emacs_version}"
         else
             echo "Backup failed!"
             return 1
@@ -73,5 +78,11 @@ make_emacs()
         echo -e "\033[31m You may install Emacs from source with witchesbrew mix make-emacs -e LINUX 3.\e[m"
         echo -e "\033[31m You may uninstall Emacs with witchesbrew mix make-emacs -e LINUX 4.\e[m"
     fi
+
+    if [[ "$ACTION" == 6 ]]
+    then
+        spellpouch -p "dialog_prompt" -e "Do you wish to proceed and uninstall tree-sitter?, press any key to continue or C-c to abort..."
+        spellpouch -p "tree_sitter" -s "make_uninstall"
+    fi    
 
 }
