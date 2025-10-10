@@ -73,7 +73,7 @@ install_odin_ls()
     sudo apt update
     sudo apt install clang
 
-    cd "${odin_ls_install_dir}/ols" && ./build.sh
+    cd "${odin_ls_install_dir}/ols" && ./build.sh && ./odinfmt.sh
 
     echo -e "\033[31m export the following PATH to your .profile $HOME/emacs-grimoire/emacs-deps/language-server/ols\e[m"
 }
