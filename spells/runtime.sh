@@ -5,36 +5,43 @@ erlang_elixir() {
     local erlang_version=$1
     local elixir_version=$2
 
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
+
     # Erlang
     echo -e "\n Adding Erlang asdf plugin...\n"
     asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-    sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk
-    asdf list-all erlang
+    sudo apt-get -y install build-essential autoconf m4 libwxgtk3.2-dev libwxgtk-webview3.2-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk
+    asdf list all erlang
     asdf install erlang "${erlang_version}"
 
-    # Elixir
+    # # Elixir
     echo -e "\n Adding Elixir asdf plugin...\n"
     asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
-    asdf list-all elixir
+    asdf list all elixir
     asdf install elixir "${elixir_version}"
 
-    # Set default global version
-    asdf global erlang 26.1.1
-    asdf global elixir 1.15.6-otp-26
+    # # Set default global version
+    asdf set --home erlang "${erlang_version}"
+    asdf set --home elixir "${elixir_version}"
 
 }
 
 chez_scheme() {
+
     local chez_version=$1
 
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
+    
     # Chez Scheme
     echo -e "\n Adding chez-scheme asdf plugin...\n"
     asdf plugin add chezscheme
-    asdf list-all chezscheme
+    asdf list all chezscheme
 
     asdf install chezscheme "${chez_version}"
 
-    asdf global chezscheme "${chez_version}"
+    asdf set --home chezscheme "${chez_version}"
 
 }
 
@@ -139,43 +146,55 @@ mit_scheme_uninstall() {
 }
 
 racket_scheme() {
+
     local racket_version=$1
+
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
 
     # Racket Scheme
     echo -e "\n Adding racket-scheme asdf plugin...\n"
     asdf plugin add racket https://github.com/nandalopes/asdf-racket.git
-    asdf list-all racket
+    asdf list all racket
 
     asdf install racket "${racket_version}"
 
-    asdf global racket "${racket_version}"
+    asdf set --home racket "${racket_version}"
 
 }
 
 python() {
+
     local python_version=$1
 
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
+    
     # Python
     echo -e "\n Adding python asdf plugin...\n"
     asdf plugin add python
-    asdf list-all python
+    asdf list all python
 
     asdf install python "${python_version}"
 
-    asdf global python "${python_version}"
+    asdf set --home python "${python_version}"
 
 }
 
 odin() {
+
     local odin_version=$1
 
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
+    
     # Odin
     echo -e "\n Adding Odin asdf plugin...\n"
     asdf plugin add odin
-    asdf list-all odin
+    asdf list all odin
 
     asdf install odin "${odin_version}"
 
-    asdf global odin "${odin_version}"
+    asdf set --home odin "${odin_version}"
     
 }
