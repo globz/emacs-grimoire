@@ -34,7 +34,7 @@ emacs_language_server()
         if [[ "$LS_INSTALL_CHOICE" == 1 ]]
         then
             echo -e "\e[0;35m2 - Installing [elixir] language-server\e[m"
-            spellpouch -p "language_server" -s "install_elixir_ls" -e "v0.17.1"
+            spellpouch -p "language_server" -s "install_elixir_ls" -e "v0.29.3"
         fi
 
         if [[ "$LS_INSTALL_CHOICE" == 2 ]]
