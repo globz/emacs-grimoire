@@ -10,4 +10,4 @@ You will need [witchesbrew](https://github.com/globz/witchesbrew) in order to us
 - [ ] Lisp [SBCL]
 - [ ] Python + LS
 - [ ] HTML language server ~ https://github.com/hrsh7th/vscode-langservers-extracted
-
+- [ ] Upgrade asdf install script to version 18.0 ~ https://asdf-vm.com/guide/upgrading-to-v0-16
