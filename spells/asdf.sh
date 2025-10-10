@@ -2,41 +2,51 @@
 
 install() {
 
-local version="v0.13.1"
-#local check_type=$(type -t asdf)
+    local wd=$(pwd)    
+    local version="v0.18.0"
+    local asdf_output=$(type -p asdf | grep "asdf")
 
-echo -e "\033[31m Checking if asdf [Runtime Version Manager] is currently installed...\e[m"
+    echo -e "\033[31m Checking if asdf [Runtime Version Manager] is currently installed...\e[m"
 
-if ! [ -x "$(command -v asdf)" ]
-then
-    echo -e "\033[31m asdf [Runtime Version Manager] could not be found\e[m"
-    echo -e "\033[31m Installing asdf ${version}\e[m"
-
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${version}"
-
-    # asdf path
-    if ! grep -Fq '. "$HOME/.asdf/asdf.sh"' ~/.bashrc
+    if ! [ $asdf_output ];
     then
-        cat<<"EOF" >> ~/.bashrc
-. "$HOME/.asdf/asdf.sh"
-EOF
-    else
-        echo "asdf path is already present in ~/.bashrc"
+        echo -e "\033[31m asdf [Runtime Version Manager] could not be found\e[m"
+        echo -e "\033[31m Installing asdf ${version}\e[m"
+
+        local asdf_repo="https://github.com/asdf-vm/asdf/releases/download/${version}/asdf-${version}-linux-amd64.tar.gz"
+        local emacs_deps_dir="${wd}/emacs-deps/"
+
+        echo -e "\033[31m Downloading asdf-${version}\e[m"
+        mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && wget "${asdf_repo}"
+
+        # https://asdf-vm.com/guide/getting-started.html#_1-install-asdf
+        tar -xzf "asdf-${version}-linux-amd64.tar.gz" -C ~/.local/bin/
+        rm "asdf-${version}-linux-amd64.tar.gz"
+        
+        type -a asdf
     fi
 
-    # bash_completion
-    if ! grep -Fq '. "$HOME/.asdf/completions/asdf.bash"' ~/.bashrc
+    echo -e "\033[31m asdf is already installed...\e[m"
+    echo -e "\033[31m Checking if asdf is in PATH\e[m"
+
+    # asdf completion
+    if ! grep -Fq '. <(asdf completion bash)' ~/.bashrc
     then
-        cat<<"EOF" >> ~/.bashrc
-. "$HOME/.asdf/completions/asdf.bash"
-EOF
+        echo -e "\033[31m asdf completion is NOT present in ~/.bashrc\e[m"
+        echo ". <(asdf completion bash)" >> ~/.bashrc
     else
-        echo "bash_completion for asdf is already present in ~/.bashrc"
+        echo -e "\033[31m asdf completion is already present in ~/.bashrc\e[m"
     fi
 
-    echo -e "\n Restart your terminal so that PATH changes take effect."
-    return 1
+   # Check if the .bash_profile file exists, and create it if it doesn't
+   [ -f ~/.bash_profile ] || touch ~/.bash_profile
 
-fi
+   # Check if the export command exists, else append it
+   if ! grep -q 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' ~/.bash_profile; then
+     echo -e "\033[31m asdf shims is NOT present in ~/.bash_profile\e[m"
+     echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' >> ~/.bash_profile
+   else
+     echo -e "\033[31m asdf shims is already present in ~/.bash_profile\e[m"
+   fi
 
 }
