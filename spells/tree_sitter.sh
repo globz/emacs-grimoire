@@ -87,6 +87,10 @@ build_src()
     local emacs_deps_dir="${wd}/emacs-deps"
     local tree_sitter_src_url="https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v${tree_sitter_version}.tar.gz"
     local tree_sitter_src_dir="tree-sitter-${tree_sitter_version}"
+
+    echo -e "\033[31m Installing build-essential...\e[m"
+    sudo apt update
+    sudo apt install build-essential
     
     echo -e "\033[31m Building tree-sitter ${tree_sitter_version}...\e[m"
     mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && wget "${tree_sitter_src_url}" && tar -xf "v${tree_sitter_version}.tar.gz"
