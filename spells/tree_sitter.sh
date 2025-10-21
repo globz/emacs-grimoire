@@ -8,7 +8,7 @@
 # version 0.26 and Emacs would refuse to compile because it broke the
 # ABI.
 
-#Instead rely on the releases version. 0.25.10 is working with
+# Instead rely on the releases version. 0.25.10 is working with
 # Emacs 29.4 so lets use this one for now. In the future if you update
 # your language-grammar or language-server it may break again so you have to
 # find a new tree-sitter version which is compatible with both Emacs
@@ -89,7 +89,7 @@ build_src()
     local tree_sitter_src_dir="tree-sitter-${tree_sitter_version}"
     
     echo -e "\033[31m Building tree-sitter ${tree_sitter_version}...\e[m"
-    cd "${emacs_deps_dir}" && wget "${tree_sitter_src_url}" && tar -xf "v${tree_sitter_version}.tar.gz"
+    mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && wget "${tree_sitter_src_url}" && tar -xf "v${tree_sitter_version}.tar.gz"
     mv "v${tree_sitter_version}.tar.gz" "${tree_sitter_src_dir}"
     cd "${tree_sitter_src_dir}" && make && sudo make install
     echo -e "\033[31m Updated ld cache...\e[m"
