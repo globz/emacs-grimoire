@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Source nvm if it does exist
+if [ -f ~/.nvm/nvm.sh ]; then
+    . ~/.nvm/nvm.sh
+fi
+
 install_elixir_ls()
 {
 

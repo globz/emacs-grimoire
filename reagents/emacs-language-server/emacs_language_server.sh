@@ -33,13 +33,13 @@ emacs_language_server()
 
         if [[ "$LS_INSTALL_CHOICE" == 1 ]]
         then
-            echo -e "\e[0;35m2 - Installing [elixir] language-server\e[m"
+            echo -e "\e[0;35m1 - Installing [elixir] language-server\e[m"
             spellpouch -p "language_server" -s "install_elixir_ls" -e "v0.29.3"
         fi
 
         if [[ "$LS_INSTALL_CHOICE" == 2 ]]
         then
-            echo -e "\e[0;35mw - Installing [bash] language-server\e[m"
+            echo -e "\e[0;35m2 - Installing [bash] language-server\e[m"
             spellpouch -p "ls_ts_reqs"
             spellpouch -p "language_server" -s "install_bash_ls"
         fi
@@ -60,7 +60,7 @@ emacs_language_server()
 
         if [[ "$LS_INSTALL_CHOICE" == 5 ]]
         then
-            echo -e "\e[0;35m4 - Installing [Odin] language-server\e[m"
+            echo -e "\e[0;35m5 - Installing [Odin] language-server\e[m"
             spellpouch -p "language_server" -s "install_odin_ls"
         fi        
 
@@ -102,7 +102,7 @@ emacs_language_server()
 
         if [[ "$LS_UPDATE_CHOICE" == 5 ]]
         then
-            echo -e "\e[0;35m4 - Updating [Odin] language-server\e[m"
+            echo -e "\e[0;35m5 - Updating [Odin] language-server\e[m"
             spellpouch -p "language_server" -s "update_odin_ls"
         fi        
     fi
