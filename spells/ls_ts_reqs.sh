@@ -7,6 +7,14 @@ ls_ts_reqs()
     local node_version="v22.20"
     local check_type=$(type -t nvm)
 
+    if ! command -v curl &> /dev/null
+    then
+        echo -e "\033[31m <wget> could not be found\e[m"
+        echo -e "\033[31m Installing wget...\e[m"
+        sudo apt install wget
+        # TODO on Ubuntu 25.0 Server wcurl will become the default and replace wget...
+    fi
+
     if [[ ${check_type} != "function" ]]
     then
         echo -e "\033[31m nvm (Node Version Manager) could not be found\e[m"
@@ -14,7 +22,7 @@ ls_ts_reqs()
         echo -e "\033[31m nvm is a must to manage all this mess of an ecosystem...enjoy\e[m"
         echo -e "\033[31m Installing nvm ${nvm_version} and Node ${node_version}\e[m"
 
-        curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh" | bash
+        wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh | bash
 
         . ~/.bashrc
         . ~/.nvm/nvm.sh
