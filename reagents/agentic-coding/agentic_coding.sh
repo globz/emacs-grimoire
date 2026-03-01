@@ -52,7 +52,7 @@ agentic_coding()
         echo -e "\e[0;35m Installing nono (kernel-level sandboxing)...\e[m"
         mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && wget "${NONO_DOWNLOAD_URL}"
         tar -xf "${NONO_BINARY}"
-        mv nono "${HOME}/.local/bin/
+        mv nono "${HOME}/.local/bin/"
     fi
 
     if [[ "$ACTION" == 3 ]]

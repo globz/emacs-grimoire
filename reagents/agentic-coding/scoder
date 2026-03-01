@@ -41,7 +41,7 @@ Options:
       --allow-venv        Allow write access to .venv (default: read-only)
       --allow-infra       Allow write access to all protected infra dirs
       --restrict-dev      Restrict /dev access to essential devices only
-  --allow-host-tools  Bind host user tools (~/.local/bin, mise, pyenv, uv, rustup/cargo, etc) (default)
+  --allow-host-tools  Bind host user tools (~/.local/bin, pyenv, uv, rustup/cargo, etc) (default)
   --no-host-tools     Disable binding host user tools
 USAGE_EOF
 
@@ -90,7 +90,7 @@ Examples:
   scoder --validate         # run comprehensive validation tests
   scoder --ro               # read-only sandbox of $PWD
   scoder --allow-git        # allow .git writes
-  scoder --allow-host-tools # bind host dev tools (mise, cargo, etc)
+  scoder --allow-host-tools # bind host dev tools (pnpm, cargo, etc)
   scoder --not-paranoid     # disable Landlock layer (bubblewrap only)
   scoder -n myproj -- --verbose # network off, pass --verbose to opencode
 
@@ -260,9 +260,7 @@ translate_paths_to_landrun() {
     # Host tools (if bound)
     if [[ "${ALLOW_HOST_TOOLS}" -eq 1 ]]; then
         [[ -d "${HOME}/.local/bin" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.local/bin")
-        [[ -d "${HOME}/.local/share/mise" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.local/share/mise")
         [[ -d "${HOME}/.local/share/uv" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.local/share/uv")
-        [[ -d "${HOME}/.config/mise" ]] && LANDRUN_PATH_RULES+=(--ro "${HOME}/.config/mise")
         [[ -d "${HOME}/.rustup" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.rustup")
         [[ -d "${HOME}/.cargo" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.cargo")
         [[ -d "${HOME}/.cargo/bin" ]] && LANDRUN_PATH_RULES+=(--rox "${HOME}/.cargo/bin")
@@ -767,13 +765,6 @@ if [[ "${ALLOW_HOST_TOOLS}" -eq 1 ]]; then
         SANDBOX_PATH="${SANDBOX_PATH}:/home/scoder/.local/bin"
     fi
 
-    # Mise
-    opt_bind "${HOME}/.local/share/mise" "/home/scoder/.local/share/mise"
-    opt_bind "${HOME}/.config/mise" "/home/scoder/.config/mise"
-    if [[ -d "${HOME}/.local/share/mise/shims" ]]; then
-        SANDBOX_PATH="${SANDBOX_PATH}:/home/scoder/.local/share/mise/shims"
-    fi
-
     # uv
     if [[ -d "${HOME}/.local/share/uv" ]]; then
         EXTRA_BINDS+=(--ro-bind "${HOME}/.local/share/uv" "/home/scoder/.local/share/uv")
@@ -814,12 +805,6 @@ if [[ "${ALLOW_HOST_TOOLS}" -eq 1 ]]; then
     # Config files
     [[ -f "${HOME}/.npmrc" ]] && EXTRA_BINDS+=(--ro-bind "${HOME}/.npmrc" "/home/scoder/.npmrc")
     [[ -f "${HOME}/.pypirc" ]] && EXTRA_BINDS+=(--ro-bind "${HOME}/.pypirc" "/home/scoder/.pypirc")
-fi
-
-# Project-local state for mise (always)
-if [[ -n "${PROJECT_DIR}" ]]; then
-    mkdir -p "${PROJECT_DIR}/.local/state/mise"
-    EXTRA_BINDS+=(--bind "${PROJECT_DIR}/.local/state/mise" "/home/scoder/.local/state/mise")
 fi
 
 # Project-local Cargo binaries
@@ -971,7 +956,6 @@ BWRAP_CMD+=(
     --setenv HOME /home/scoder
     --setenv USER scoder
     --setenv LOGNAME scoder
-    --setenv MISE_SKIP_ACTIVATE 1
     --setenv UV_LINK_MODE copy
 )
 
