@@ -18,7 +18,8 @@ prog_lang()
     echo -e "\e[0;35m5 - Install Python\e[m"
     echo -e "\e[0;35m6 - Install R\e[m"
     echo -e "\e[0;35m7 - Install Odin\e[m"    
-
+    echo -e "\e[0;35m8 - Install Go\e[m"    
+    
     if [[ ! -z "$predefined_selection" ]]
     then
         ACTION=$predefined_selection
@@ -114,6 +115,13 @@ prog_lang()
         echo -e "\033[31m Installing Odin...\e[m"
         spellpouch -p "asdf" -s "install"
         spellpouch -p "runtime" -s "odin" -e "dev-2024-02"
-    fi    
+    fi
+
+    if [ "$ACTION" == 8 ]
+    then
+        echo -e "\033[31m Installing Go...\e[m"
+        spellpouch -p "asdf" -s "install"
+        spellpouch -p "runtime" -s "golang" -e "1.26.0"
+    fi        
 
 }
