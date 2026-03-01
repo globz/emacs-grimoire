@@ -12,8 +12,22 @@
       "sudo": "deny",
       "su *": "deny",
       "dd *": "deny",
-      "grep *": "allow",
-      "pnpm *": "ask",
     },
-  }
+  },
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
+    },
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "mode": "subagent",
+      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+    }
+  }    
 }
