@@ -16,7 +16,6 @@
 agentic_coding()
 {
 
-    local env=$1
     local wd=$(pwd)
     local emacs_deps_dir="${wd}/emacs-deps"
     local agentic_coding_path="${wd}/reagents/agentic-coding"
