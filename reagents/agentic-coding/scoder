@@ -90,7 +90,7 @@ Examples:
   scoder --validate         # run comprehensive validation tests
   scoder --ro               # read-only sandbox of $PWD
   scoder --allow-git        # allow .git writes
-  scoder --allow-host-tools # bind host dev tools (pnpm, cargo, etc)
+  scoder --allow-host-tools # bind host dev tools (pyenv, cargo, etc)
   scoder --not-paranoid     # disable Landlock layer (bubblewrap only)
   scoder -n myproj -- --verbose # network off, pass --verbose to opencode
 
