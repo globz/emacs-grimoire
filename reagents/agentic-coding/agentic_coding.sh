@@ -52,6 +52,8 @@ agentic_coding()
         mkdir -p "${emacs_deps_dir}" && cd "${emacs_deps_dir}" && wget "${NONO_DOWNLOAD_URL}"
         tar -xf "${NONO_BINARY}"
         mv nono "${HOME}/.local/bin/"
+        echo -e "You may now invoke opencode with nono via: \n"
+        echo -e "\e[0;35m nono run -vvv --profile opencode --read ~/.opencode --allow /dev -- opencode \e[m"
     fi
 
     if [[ "$ACTION" == 3 ]]
