@@ -62,6 +62,17 @@ Install aspell dictionaries
 emacs_aspell.sh
 [/]
 
+[REAGENT]
+:name:
+agentic-coding
+:version:
+v0.1
+:description:
+Install agentic coding stack
+:source:
+agentic_coding.sh
+[/]
+
 [RECIPE]
 :name:
 example-recipe

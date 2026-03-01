@@ -198,3 +198,21 @@ odin() {
     asdf set --home odin "${odin_version}"
     
 }
+
+golang() {
+
+    local go_version=$1
+
+    # Mandatory if we just installed asdf!
+    source ~/.bashrc
+
+    # Go
+    echo -e "\n Adding Go asdf plugin...\n"
+    asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+    asdf list all golang
+
+    asdf install golang "${go_version}"
+
+    asdf set --home golang "${go_version}"
+    
+}
