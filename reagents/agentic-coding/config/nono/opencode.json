@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "name": "opencode",
+    "version": "1.0.0",
+    "description": "OpenCode AI coding assistant",
+    "author": "globz"
+  },
+  "workdir": {
+    "access": "readwrite"
+  },
+  "security": {
+    "groups": ["node_runtime", "unlink_protection"]
+  },
+  "trust_groups": [],
+  "filesystem": {
+    "allow": [
+      "$HOME/.config/opencode",
+      "$HOME/.cache/opencode",
+      "$HOME/.local/share/opencode",
+      "/dev"
+    ],
+    "read": ["$HOME/.opencode", "$HOME/.local/share/pnpm"]
+  },
+  "network": {
+    "block": false
+  },
+  "rollback": {
+    "exclude_patterns": ["node_modules"],
+    "exclude_globs": ["*.tmp.[0-9]*.[0-9]*"]
+  },
+  "interactive": true
+}
