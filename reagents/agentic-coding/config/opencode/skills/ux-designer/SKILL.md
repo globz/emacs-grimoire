@@ -34,7 +34,7 @@ Use this skill when you are:
 - Starting a new feature and need a **layout proposal**
 - Converting a low-fidelity idea into a **functional UI**
 - Fixing **usability issues** or improving the "feel" of an application
-- Ensuring your design is **responsive** and mobile-first
+- Ensuring your design is **responsive**
 
 ## How we work together (Iterative Process)
 
