@@ -20,6 +20,8 @@ agentic_coding()
     local emacs_deps_dir="${wd}/emacs-deps"
     local this_root_path="${wd}/reagents/agentic-coding"
     local opencode_config="${this_root_path}/config/opencode/opencode.json"
+    local opencode_skills="${this_root_path}/config/opencode/skills/*"
+    local opencode_skills_dest="${HOME}/.config/opencode/skills/"
     local nono_opencode_config="${this_root_path}/config/nono/opencode.json"
     local nono_profiles_dest="${HOME}/.config/nono/profiles/"
     local scoder_path="${wd}/reagents/agentic-coding/scoder"
@@ -84,8 +86,14 @@ agentic_coding()
     then
         echo -e "\e[0;35m Installing/updating configuration files...\e[m"
         git pull
+
         echo -e "\e[0;35m .config/opencode \e[m"
         cp "${opencode_config}" "${HOME}/.config/opencode/"
+
+        echo -e "\e[0;35m .config/opencode/skills \e[m"
+        mkdir -p ${opencode_skills_dest}
+        cp -r ${opencode_skills} ${opencode_skills_dest}
+                
         echo -e "\e[0;35m .config/nono/profiles \e[m"
         mkdir -p "${nono_profiles_dest}"
         cp "${nono_opencode_config}" "${nono_profiles_dest}"
