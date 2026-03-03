@@ -27,7 +27,7 @@ agentic_coding()
     local scoder_path="${wd}/reagents/agentic-coding/scoder"
     local repo_landrun="https://github.com/zouuup/landrun.git"
     local landlock_abi_check_dest="${HOME}/.local/bin/"
-    local nono_version="v0.8.0"
+    local nono_version="v0.8.1"
     local nono_download_url="https://github.com/always-further/nono/releases/download/${nono_version}/nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     local nono_binary="nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     
@@ -36,7 +36,7 @@ agentic_coding()
 
     echo "The following options are available, please make a choice ::"
     echo -e "\e[0;35m1 - Install opencode (harness)\e[m"
-    echo -e "\e[0;35m2 - Install nono (kernel-level sandboxing) - preferred\e[m"
+    echo -e "\e[0;35m2 - Install/Update nono (kernel-level sandboxing) - preferred\e[m"
     echo -e "\e[0;35m3 - Install landrun (kernel-level sandboxing) - alternative\e[m"
     echo -e "\e[0;35m4 - Install/Update scoder (opencode sandboxing env) - alternative\e[m"
     echo -e "\e[0;35m5 - Install/Update configuration files (opencode & nono)\e[m"
