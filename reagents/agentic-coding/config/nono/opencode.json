@@ -16,8 +16,7 @@
     "allow": [
       "$HOME/.config/opencode",
       "$HOME/.cache/opencode",
-      "$HOME/.local/share/opencode",
-      "/dev"
+      "$HOME/.local/share/opencode"
     ],
     "read": ["$HOME/.opencode", "$HOME/.local/share/pnpm"]
   },

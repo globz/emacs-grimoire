@@ -27,7 +27,7 @@ agentic_coding()
     local scoder_path="${wd}/reagents/agentic-coding/scoder"
     local repo_landrun="https://github.com/zouuup/landrun.git"
     local landlock_abi_check_dest="${HOME}/.local/bin/"
-    local nono_version="v0.8.1"
+    local nono_version="v0.10.0"
     local nono_download_url="https://github.com/always-further/nono/releases/download/${nono_version}/nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     local nono_binary="nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     
@@ -58,7 +58,7 @@ agentic_coding()
         tar -xf "${nono_binary}"
         mv nono "${HOME}/.local/bin/"
         echo -e "You may now invoke opencode with nono via: \n"
-        echo -e "\e[0;35m nono run -vvv --profile opencode --read ~/.opencode --allow /dev -- opencode \e[m"
+        echo -e "\e[0;35m nono run -vvv --profile opencode -- opencode \e[m"
     fi
 
     if [[ "$ACTION" == 3 ]]
