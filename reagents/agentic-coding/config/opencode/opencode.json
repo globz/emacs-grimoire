@@ -26,7 +26,12 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
+      "model": "chutes/Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "permission": {
+        "skill": {
+          "code-review": "allow"
+        }
+      }
     },
     "ux-designer": {
       "description": "UX/UI designer",

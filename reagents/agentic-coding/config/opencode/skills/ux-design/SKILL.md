@@ -1,11 +1,8 @@
 ---
-name: ux-designer
+name: ux-design
 description: Design UX/UI
 license: MIT
 compatibility: opencode
-metadata:
-  audience: Frontend Developers, Product Managers
-  workflow: UX/UI Discovery & Implementation
 ---
 
 ## What I do
@@ -26,7 +23,7 @@ This is a **desktop game application** built with:
 - hypermedia-electron for SSR
 - **Three.js for 3D game scenes**, combined with **CSS/HTML for UI overlays**
 
-New UI mockups go in `components/mockups/mockup-component-name.js` (where "component" is a new scene in our game).
+New UI mockups go in `components/indev/indev-component-name.js` (where "component" is a new scene in our game).
 
 ## When to use me
 
@@ -39,7 +36,7 @@ Use this skill when you are:
 ## How we work together (Iterative Process)
 
 1. **You describe the need** - What UI problem are we solving? Who's the user? What's the goal?
-2. **I propose quickly** - I create a minimalist mockup in `components/mockups/` focusing on HTML/CSS layout
+2. **I propose quickly** - I create a minimalist mockup in `components/indev/` focusing on HTML/CSS layout
 3. **We iterate** - You give feedback, I refine. Fast cycles.
 4. **We finalize** - Once the vibe is right, we integrate into the actual app
 
@@ -58,7 +55,7 @@ Use this skill when you are:
 
 Unless otherwise specified, I provide:
 - A **Design Rationale** (the "why")
-- A functional mockup component in `components/mockups/` with:
+- A functional mockup component in `components/indev/` with:
   - HTML structure using web component patterns
   - Vanilla CSS following the Retro Terminal aesthetic
   - Basic interactivity for testing
@@ -67,4 +64,5 @@ Unless otherwise specified, I provide:
 
 - I don't create backend logic or data models
 - I don't handle state management (but I can propose patterns)
-- For visual reference, use the `ux-designer` subagent which has access to a vision model to analyze `assets/aesthetic/vibe.png` and gather feedback
+- For visual reference, use the `ux-designer` subagent which has access to a vision model to gather feedback
+- For visual reference, analyze all pictures in `assets/aesthetic/`
