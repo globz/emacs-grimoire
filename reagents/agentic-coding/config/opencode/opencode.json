@@ -17,11 +17,9 @@
   "agent": {
     "build": {
       "mode": "primary",
-      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
     },
     "plan": {
       "mode": "primary",
-      "model": "chutes/MiniMaxAI/MiniMax-M2.5-TEE",
     },
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
