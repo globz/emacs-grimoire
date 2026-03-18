@@ -34,13 +34,19 @@
     "ux-designer": {
       "description": "UX/UI designer",
       "mode": "subagent",
-      "model": "chutes/zai-org/GLM-4.6V",
+      "model": "chutes/moonshotai/Kimi-K2.5-TEE",
       "temperature": 0.5,
       "permission": {
         "skill": {
           "ux-design": "allow"
         }
       }
-    }
+    },
+    "my-eyes": {
+      "description": "Eyesight",
+      "mode": "subagent",
+      "model": "chutes/zai-org/GLM-4.6V",
+      "temperature": 0.5,
+    }      
   }    
 }

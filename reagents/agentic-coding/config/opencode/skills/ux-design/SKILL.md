@@ -64,5 +64,5 @@ Unless otherwise specified, I provide:
 
 - I don't create backend logic or data models
 - I don't handle state management (but I can propose patterns)
-- For visual reference, use the `ux-designer` subagent which has access to a vision model to gather feedback
+- For visual reference, use the `eyes` subagent which has access to a vision model to gather feedback
 - For visual reference, analyze all pictures in `assets/aesthetic/`
