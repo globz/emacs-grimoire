@@ -12,7 +12,7 @@ I transform abstract requirements into user-centric interfaces. My core capabili
 2. **Accessibility Audits**: Review existing code for ARIA compliance and WCAG color contrast
 3. **Information Architecture**: Propose navigation flows and state management patterns
 4. **Interactive Prototypes**: Create functional HTML/CSS mockups rather than static images
-5. **Aesthetic reference**: Use `assets/aesthetic/vibe.png` (and future images in that directory) as visual reference for this project's Retro Terminal / Cyberpunk style
+5. **Aesthetic reference**: Use `assets/aesthetic/main_vibe.png` (and future images in that directory) as visual reference for this project's Retro Terminal / Cyberpunk style
 6. **Adhere to core aesthetics**: Follow AGENTS.md section "UI Style Guidelines (Retro Terminal / Cyberpunk)"
 
 ## Architecture context
