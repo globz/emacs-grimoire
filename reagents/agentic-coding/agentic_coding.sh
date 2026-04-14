@@ -27,7 +27,7 @@ agentic_coding()
     local scoder_path="${wd}/reagents/agentic-coding/scoder"
     local repo_landrun="https://github.com/zouuup/landrun.git"
     local landlock_abi_check_dest="${HOME}/.local/bin/"
-    local nono_version="v0.15.0"
+    local nono_version="v0.35.0"
     local nono_download_url="https://github.com/always-further/nono/releases/download/${nono_version}/nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     local nono_binary="nono-${nono_version}-x86_64-unknown-linux-gnu.tar.gz"
     
