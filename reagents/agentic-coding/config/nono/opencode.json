@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "opencode",
-    "version": "1.0.0",
+    "version": "1.4.3",
     "description": "OpenCode AI coding assistant",
     "author": "globz"
   },
@@ -9,16 +9,32 @@
     "access": "readwrite"
   },
   "security": {
-    "groups": ["node_runtime", "unlink_protection"]
+    "groups": [
+        "node_runtime",
+        "unlink_protection",
+        "user_caches_linux",
+        "opencode_linux"          
+    ]
   },
-  "trust_groups": [],
   "filesystem": {
     "allow": [
-      "$HOME/.config/opencode",
-      "$HOME/.cache/opencode",
-      "$HOME/.local/share/opencode"
+      "~/.config/opencode",
+      "~/.cache/opencode",
+      "~/.local/share/opencode",
+      "~/.local/state/opencode",
+      "~/.local/share/opentui"
     ],
-    "read": ["$HOME/.opencode", "$HOME/.local/share/pnpm"]
+    "read": [
+       "~/.opencode",
+       "~/.opencode/bin",
+       "~/.local/share/pnpm"
+    ],
+    "allow_file": [
+      "~/.cache/opencode/models.json",
+      "~/.local/state/opencode/prompt-history.jsonl",
+      "~/.opencode/package.json",
+      "~/.cache/opencode/version"
+    ]      
   },
   "network": {
     "block": false
