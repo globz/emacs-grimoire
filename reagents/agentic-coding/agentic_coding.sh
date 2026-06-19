@@ -13,6 +13,9 @@
 # Linux kernel 6.7 or later for network restrictions (TCP bind/connect)
 # Go 1.18 or later (for building landrun from source)
 
+# TODO 2026-06-18, it looks like with the latest update v0.64.0 that we no
+# longer need to care about nono_opencode_config and nono_profiles_dest
+
 agentic_coding()
 {
 
